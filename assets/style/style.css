@@ -1,0 +1,619 @@
+@import "font.css";
+@import "mediaQuery.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  direction: rtl;
+  overflow-x: hidden !important;
+}
+
+a {
+  text-decoration: none;
+  color: #474747;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-family: "SG Kara";
+  font-weight: bold;
+  border-bottom: 4px solid #ff1700;
+  color: #2b2b2b;
+  text-align: center;
+  margin: 60px 0;
+}
+
+.btn {
+  width: 300px;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-family: "SG Kara";
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-yellow {
+  border: 6px solid #ffe400;
+  color: #ffe400;
+  transition: all 0.3s ease-in-out;
+  margin-top: 30px;
+}
+
+.btn-red {
+  border: 3px solid #ff1700;
+  color: #ff1700;
+  width: 210px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.btn-yellow:hover {
+  transform: scale(0.9);
+}
+
+.btn-red:hover {
+  transform: scale(0.9);
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ff1700;
+}
+
+.header .nav {
+  width: 85%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.nav .open-menu {
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav.sticky {
+  width: 100% !important;
+  position: fixed;
+  background-color: #fff;
+  z-index: 9999999999999;
+  box-shadow: 1px 1px 12px #878787;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.nav.sticky ul li a {
+  color: #ff1700;
+}
+
+.nav.sticky .header-logo {
+  color: #ff1700;
+}
+
+.nav.sticky .open-menu {
+  color: #ff1700;
+}
+
+.nav ul {
+  display: none;
+}
+
+.nav ul li a {
+  font-size: 1.2rem;
+  font-family: "SG Kara";
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav ul li a:hover {
+  color: #ffe400;
+}
+
+.nav .header-logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "2  Sina";
+  color: #fff;
+  cursor: pointer;
+}
+
+.header .drop-down-menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #0000004c;
+  z-index: 99999999999999;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.drop-down-menu-container.activeMenu {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.drop-down-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: #fff;
+  padding: 100px 50px;
+  display: flex;
+  align-items: center;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+.drop-down-menu-container.activeMenu .drop-down-menu {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.drop-down-menu .close-menu {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 2rem;
+  color: #2b2b2b;
+  cursor: pointer;
+  transition: color .4s  ease-in-out;
+}
+
+.drop-down-menu .close-menu:hover {
+  color: #ff1700;
+}
+
+.drop-down-menu ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+
+.drop-down-menu ul li a {
+  display: block;
+  font-family: "SG Kara";
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #2b2b2b;
+  cursor: pointer;
+  transition: color 0.4s ease-in-out;
+  border-right: 4px solid #ff1700;
+  padding-right: 10px;
+}
+
+.drop-down-menu ul li a:hover {
+  color: #ffe400;
+}
+
+.header .header-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 100px;
+  padding: 10px 0 80px 0;
+}
+
+.header-content .header-img {
+  position: relative;
+  width: 570px;
+  z-index: 99999;
+}
+
+.header-content .header-img::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -110px;
+  transform: translateY(-50%);
+  width: 480px;
+  height: 460px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: -999999;
+}
+
+.header-content .header-img img {
+  width: 100%;
+}
+
+.header .header-caption {
+  margin: 130px auto;
+  text-align: center;
+}
+
+.header .header-caption h1 {
+  font-size: 5rem;
+  font-family: "SG Kara";
+  font-weight: bold;
+  color: #fff;
+  line-height: 100px;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+}
+
+.main .main-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container .most-popular {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.most-popular .most-popular-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.most-popular-container .most-popular-item {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 80px;
+  transition: all 0.4s ease-in-out;
+}
+
+.most-popular-item:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.most-popular-item:nth-child(2) .most-popular-img {
+  position: relative;
+  width: 420px;
+  height: 240px;
+}
+
+.most-popular-item:nth-child(2) .most-popular-img::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100%;
+  height: 100%;
+  border: 6px solid #ffe400;
+}
+
+.most-popular-item .most-popular-img {
+  position: relative;
+  width: 300px;
+  height: 430px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.most-popular-item .most-popular-img:hover {
+  transform: scale(1.1);
+}
+
+.most-popular-item .most-popular-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.most-popular-item .most-popular-img::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 100%;
+  height: 100%;
+  border: 6px solid #ffe400;
+}
+
+.most-popular-item .most-popular-item-caption {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.most-popular-item-caption h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "SG Kara";
+  text-align: center;
+  line-height: 80px;
+  color: #2b2b2b;
+  cursor: pointer;
+}
+
+.most-popular-item-caption p {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "vazir";
+  line-height: 35px;
+  text-align: justify;
+  color: #2b2b2b;
+  margin: 30px 0;
+}
+
+.most-popular-item-caption span {
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: "vazir";
+  text-align: justify;
+  color: #343434;
+}
+
+.main .banner-slider {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  margin: 20px 0;
+  padding: 50px;
+  overflow: hidden;
+}
+
+.banner-slider .banner-slider-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.2);
+  transition: all 0.6s ease-in-out;
+}
+
+.banner-slider .banner-slider-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000095;
+}
+
+.banner-slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-slider-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.banner-slider-item h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "SG Kara";
+  color: #fff;
+  z-index: 99999;
+  cursor: pointer;
+  text-align: center;
+}
+
+.main .menu {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.menu .menu-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-container .menu-item-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 60px 0;
+}
+
+.menu-item-container .menu-item {
+  position: relative;
+  width: 340px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 5px 5px 30px #aaaaaa;
+  margin: 40px 20px;
+  cursor: pointer;
+}
+
+.menu-item:hover .menu-item-discount {
+  animation: noticeAnimate 1s ease-in-out;
+}
+
+@keyframes noticeAnimate {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  25% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  75% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.menu-item img {
+  width: 80%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.menu-item .menu-item-discount {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 27%;
+  right: 20px;
+  color: #fff;
+  background: #ff1700;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: "vazir";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-item .menu-item-caption {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 40px 0;
+}
+
+.menu-item-caption h3 {
+  font-family: "SG Kara";
+  font-size: 1.2rem;
+  color: #2b2b2b;
+}
+
+.menu-item-caption p {
+  font-family: "vazir";
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #2b2b2b;
+  margin-top: 5px;
+}
+
+.footer {
+  width: 100%;
+  height: 300px;
+  background: #ff1700;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .footer-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.footer-container .footer-about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.footer-about-us ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.footer-about-us ul li {
+  font-size: 1rem;
+  font-family: "vazir";
+  margin: 12px 0;
+  transition: transform 0.6s ease-in-out;
+}
+
+.footer-about-us ul li:hover {
+  transform: scale(1.1);
+}
+
+.footer-about-us ul li svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  font-size: 1rem;
+}
